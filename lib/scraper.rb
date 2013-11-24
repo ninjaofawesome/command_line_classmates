@@ -21,9 +21,16 @@ class Scraper
 	def get_twitter_names
 		t_names = Array.new
 		all_the_twitters = html.search(".social")
-		all_the_twitters.text(" Blog").split(" ").each { |i| t_names << i if i.start_with?("@")}
+		all_the_twitters.text.split(" ").each { |i| t_names << i if i.start_with?("@")}
 		t_names
 	end
+
+	# def get_twitter_names
+	# 	t_names = Array.new
+	# 	all_the_twitters = html.search(".social")
+	# 	all_the_twitters.text("Blog").split(" ").each { |i| t_names << i if i.start_with?("@")}
+	# 	t_names
+	# end
 
 	def get_blog_names
 		array = html.search("ul.social")
@@ -43,5 +50,5 @@ class Scraper
 
 
 
-my_scraper = Scraper.new("http://flatironschool-bk.herokuapp.com/")
-puts my_scraper.get_blog_names
+# my_scraper = Scraper.new("http://flatironschool-bk.herokuapp.com/")
+# puts my_scraper.get_twitter_names
